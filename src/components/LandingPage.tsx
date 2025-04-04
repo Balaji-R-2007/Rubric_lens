@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Upload, CheckSquare, BarChart2, Zap } from 'lucide-react';
+import { GraduationCap, Upload, CheckSquare, BarChart2, Zap, ArrowRight, Mail, Github, Twitter, Linkedin } from 'lucide-react';
 
 interface LandingPageProps {
     onGetStarted: () => void;
@@ -7,7 +7,7 @@ interface LandingPageProps {
 
 export function LandingPage({ onGetStarted }: LandingPageProps) {
     return (
-        <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+        <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col">
             {/* Hero Section */}
             <div className="max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
                 <div className="text-center">
@@ -88,18 +88,81 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
                 </div>
             </div>
 
-            {/* CTA Section */}
-            <div className="bg-blue-600 py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-white mb-6">Ready to transform your grading process?</h2>
-                    <button
-                        onClick={onGetStarted}
-                        className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-8 rounded-lg text-lg shadow-md transition-colors"
-                    >
-                        Try Rubric-Lens Now
-                    </button>
+            {/* Enhanced CTA Section */}
+            <div className="bg-gradient-to-r from-blue-600 to-blue-800 py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-xl p-10 md:p-16">
+                        <div className="text-center">
+                            <h2 className="text-4xl font-bold text-white mb-6">Ready to transform your grading process?</h2>
+                            <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+                                Join educators who are saving hours each week with AI-powered rubric evaluation.
+                                Get started today and focus more on teaching, less on grading.
+                            </p>
+                            <button
+                                onClick={onGetStarted}
+                                className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-4 px-10 rounded-lg text-lg shadow-md transition-colors flex items-center gap-2 mx-auto"
+                            >
+                                Try Rubric-Lens Now
+                                <ArrowRight className="w-5 h-5" />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            {/* Footer */}
+            <footer className="bg-gray-900 text-gray-300 py-12 mt-auto">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div>
+                            <div className="flex items-center gap-3 mb-6">
+                                <GraduationCap className="w-8 h-8 text-blue-400" />
+                                <h3 className="text-xl font-bold text-white">Rubric-Lens</h3>
+                            </div>
+                            <p className="text-gray-400">
+                                Simplifying assessment with AI-powered rubric evaluation for educators.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                            <ul className="space-y-2">
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Support</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 className="text-lg font-semibold text-white mb-4">Connect With Us</h3>
+                            <div className="flex gap-4 mb-4">
+                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Twitter className="w-6 h-6" />
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Github className="w-6 h-6" />
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Linkedin className="w-6 h-6" />
+                                </a>
+                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                    <Mail className="w-6 h-6" />
+                                </a>
+                            </div>
+                            <p className="text-gray-400">
+                                <a href="mailto:contact@rubric-lens.com" className="hover:text-white transition-colors">
+                                    contact@rubric-lens.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
+                        <p>&copy; {new Date().getFullYear()} Rubric-Lens. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 } 
