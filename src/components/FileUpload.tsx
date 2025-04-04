@@ -24,7 +24,7 @@ export function FileUpload({ onFileSelect }: FileUploadProps) {
         };
         reader.readAsDataURL(file);
       } else {
-        // For non-image files like PDFs, clear any existing image preview
+        // For non-image files like PDFs, clear image preview
         setPreview(null);
       }
     }
