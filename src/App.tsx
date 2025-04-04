@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { FileUpload } from './components/FileUpload';
 import { RubricEditor } from './components/RubricEditor';
 import { EvaluationResults } from './components/EvaluationResults';
+import { LandingPage } from './components/LandingPage';
 import { Loader2, GraduationCap } from 'lucide-react';
 import { evaluateSubmission } from './lib/gemini';
 import type { Rubric, EvaluationResult } from './types';
 import toast from 'react-hot-toast';
 
 function App() {
+  const [showLandingPage, setShowLandingPage] = useState(true);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [rubric, setRubric] = useState<Rubric[]>([
     { id: '1', criteria: 'Visual clarity and organization', maxScore: 10 },
@@ -62,13 +64,27 @@ function App() {
     }
   };
 
+  // Show landing page
+  if (showLandingPage) {
+    return <LandingPage onGetStarted={() => setShowLandingPage(false)} />;
+  }
+
+  // Show main application
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <GraduationCap className="w-8 h-8 text-blue-600" />
-            <h1 className="text-2xl font-bold text-gray-900">Rubric-Lens</h1>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <GraduationCap className="w-8 h-8 text-blue-600" />
+              <h1 className="text-2xl font-bold text-gray-900">Rubric-Lens</h1>
+            </div>
+            <button 
+              onClick={() => setShowLandingPage(true)}
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              Back to Home
+            </button>
           </div>
         </div>
       </header>
