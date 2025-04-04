@@ -40,7 +40,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                         {/* Feature 1 */}
                         <div className="bg-blue-50 p-8 rounded-lg shadow-sm">
                             <div className="flex justify-center mb-4">
