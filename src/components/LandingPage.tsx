@@ -152,24 +152,18 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
                         <div>
                             <h3 className="text-lg font-semibold text-white mb-4">Connect With Us</h3>
                             <div className="flex gap-4 mb-4">
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                    <Twitter className="w-6 h-6" />
-                                </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                   
+                                <a href="https://github.com/Balaji-R-2007/Rubric_lens.git" className="text-gray-400 hover:text-white transition-colors">
                                     <Github className="w-6 h-6" />
                                 </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                <a href="https://www.linkedin.com/in/balaji-rkb/" className="text-gray-400 hover:text-white transition-colors">
                                     <Linkedin className="w-6 h-6" />
                                 </a>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                                <a href="balaji648balaji@gmail.com" className="text-gray-400 hover:text-white transition-colors">
                                     <Mail className="w-6 h-6" />
                                 </a>
                             </div>
-                            <p className="text-gray-400">
-                                <a href="mailto:contact@rubric-lens.com" className="hover:text-white transition-colors">
-                                    contact@rubric-lens.com
-                                </a>
-                            </p>
+                           
                         </div>
                     </div>
                     
