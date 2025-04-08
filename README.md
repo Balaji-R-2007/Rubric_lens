@@ -1,10 +1,7 @@
-Here's a complete **README.md** file tailored for your **GitHub repository** for **Rubric-Lens: AI-Powered Assignment Evaluation**:
-
----
-
 # 📊 Rubric-Lens: AI-Powered Assignment Evaluation
-
 **Rubric-Lens** is a smart tool for educators to automatically evaluate student submissions using customizable rubrics and generative AI. Save hours of manual grading with consistent, objective, and detailed feedback — all powered by advanced AI.
+
+![Image](https://github.com/user-attachments/assets/694655f0-a1ef-48a1-81ca-d51f74d4753d)
 
 ---
 
