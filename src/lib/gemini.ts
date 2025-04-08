@@ -1,9 +1,8 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import type { Rubric, EvaluationResult } from '../types';
 
-// Note: In a production environment, the API key should be stored securely (e.g., in environment variables)
-const API_KEY = 'AIzaSyADtIyy7AB6Ezl7wiYtC_jLsgrod1CwQMM';
-const genAI = new GoogleGenerativeAI(API_KEY);
+const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
+
 
 export async function evaluateSubmission(
   fileContent: string,
