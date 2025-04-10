@@ -90,8 +90,17 @@ function App() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-8">
+        <div className=
+          {`${
+            results
+            ? 'flex flex-col lg:flex-row gap-[10px] items-start'
+            : 'flex items-center justify-center min-h-screen'
+          }`} >
+          <div 
+            className={`space-y-8 ${
+              results ? 'flex-1' : 'max-w-3xl w-full px-4'
+            }`} >
+
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-xl font-semibold mb-4 text-gray-800">Upload Submission</h2>
               <FileUpload onFileSelect={handleFileSelect} />
@@ -122,10 +131,12 @@ function App() {
               <RubricEditor rubric={rubric} onRubricChange={setRubric} />
             </div>
           </div>
-
-          <div className="space-y-8">
-            {results && <EvaluationResults results={results} rubric={rubric} />}
-          </div>
+          
+          {results && (
+            <div className="flex-1 space-y-8">
+              <EvaluationResults results={results} rubric={rubric} />
+            </div>
+          )}
         </div>
       </main>
     </div>
