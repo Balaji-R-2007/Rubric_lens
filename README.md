@@ -3,6 +3,8 @@
 
 ![Image](https://github.com/user-attachments/assets/694655f0-a1ef-48a1-81ca-d51f74d4753d)
 
+![Preview](https://github.com/user-attachments/assets/3d360081-18fc-4daa-9a0c-7cc445d19752)
+
 ---
 
 ## ✨ Features
