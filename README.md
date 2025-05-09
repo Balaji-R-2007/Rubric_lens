@@ -1,7 +1,8 @@
 # 📊 Rubric-Lens: AI-Powered Assignment Evaluation
 **Rubric-Lens** is a smart tool for educators to automatically evaluate student submissions using customizable rubrics and generative AI. Save hours of manual grading with consistent, objective, and detailed feedback — all powered by advanced AI.
 
-![Image](https://github.com/user-attachments/assets/694655f0-a1ef-48a1-81ca-d51f74d4753d)
+![image](https://github.com/user-attachments/assets/90ae4bec-46aa-4558-b1b1-94c7074ec959)![image](https://github.com/user-attachments/assets/96dec982-3ef5-40b1-91d2-839ac4ca5475)
+
 
 ![Preview](https://github.com/user-attachments/assets/3d360081-18fc-4daa-9a0c-7cc445d19752)
 
