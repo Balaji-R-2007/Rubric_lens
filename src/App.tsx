@@ -3,10 +3,11 @@ import { FileUpload } from './components/FileUpload';
 import { RubricEditor } from './components/RubricEditor';
 import { EvaluationResults } from './components/EvaluationResults';
 import { LandingPage } from './components/LandingPage';
-import { Loader2, GraduationCap } from 'lucide-react';
+import { Loader2, GraduationCap, ArrowLeft } from 'lucide-react';
 import { evaluateSubmission } from './lib/gemini';
 import type { Rubric, EvaluationResult } from './types';
 import toast from 'react-hot-toast';
+import { motion } from "motion/react";
 
 function App() {
   const [showLandingPage, setShowLandingPage] = useState(true);
@@ -71,51 +72,69 @@ function App() {
 
   // Show main application
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm">
+    <div className="min-h-screen bg-gray-900 text-white">
+      <header className="border-b border-gray-800 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <GraduationCap className="w-8 h-8 text-blue-600" />
-              <h1 className="text-2xl font-bold text-gray-900">Rubric-Lens</h1>
+              <div className="bg-gradient-to-br from-purple-500 to-indigo-600 p-2 rounded-lg">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-indigo-200 text-transparent bg-clip-text">
+                Rubric-Lens
+              </h1>
             </div>
-            <button 
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setShowLandingPage(true)}
-              className="text-blue-600 hover:text-blue-800 font-medium"
+              className="flex items-center gap-2 text-gray-300 hover:text-white font-medium"
             >
+              <ArrowLeft className="w-4 h-4" />
               Back to Home
-            </button>
+            </motion.button>
           </div>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        <div className=
-          {`${
-            results
-            ? 'flex flex-col lg:flex-row gap-[10px] items-start'
-            : 'flex items-center justify-center min-h-screen'
-          }`} >
+        <div className={`${
+          results
+          ? 'flex flex-col lg:flex-row gap-8 items-start'
+          : 'flex items-center justify-center min-h-screen'
+        }`}>
           <div 
             className={`space-y-8 ${
               results ? 'flex-1' : 'max-w-3xl w-full px-4'
-            }`} >
+            }`}>
 
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-4 text-gray-800">Upload Submission</h2>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg"
+            >
+              <h2 className="text-xl font-semibold mb-4 text-white">Upload Submission</h2>
               <FileUpload onFileSelect={handleFileSelect} />
-            </div>
+            </motion.div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg"
+            >
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold text-gray-800">Evaluation Criteria</h2>
-                <button
+                <h2 className="text-xl font-semibold text-white">Evaluation Criteria</h2>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={handleEvaluate}
                   disabled={isEvaluating || !selectedFile}
                   className={`px-6 py-2 rounded-lg font-medium text-white
                     ${isEvaluating || !selectedFile
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-blue-500 hover:bg-blue-600'
+                      ? 'bg-gray-600 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700'
                     } transition-colors flex items-center gap-2`}
                 >
                   {isEvaluating ? (
@@ -126,16 +145,21 @@ function App() {
                   ) : (
                     'Evaluate Submission'
                   )}
-                </button>
+                </motion.button>
               </div>
               <RubricEditor rubric={rubric} onRubricChange={setRubric} />
-            </div>
+            </motion.div>
           </div>
           
           {results && (
-            <div className="flex-1 space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex-1 space-y-8"
+            >
               <EvaluationResults results={results} rubric={rubric} />
-            </div>
+            </motion.div>
           )}
         </div>
       </main>
